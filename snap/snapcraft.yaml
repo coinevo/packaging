@@ -42,7 +42,7 @@ parts:
       wget https://coinevo.tech/bin/coinevo-${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS.asc
       wget https://coinevo.tech/bin/coinevo-${SNAPCRAFT_PROJECT_VERSION}/coinevo-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
       wget https://coinevo.tech/bin/coinevo-${SNAPCRAFT_PROJECT_VERSION}/coinevo-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
-      echo "087cb44d9053bcb07e15345d372ce7ca654db07771bbdcc3b0d06a151391ab73  SHA256SUMS.asc" | sha256sum --check
+      echo "03c5f9a2c9201729847c1ef0f8467d4401b69f0f2b12dd476edb871e98e458a5  SHA256SUMS.asc" | sha256sum --check
       sha256sum --ignore-missing --check SHA256SUMS.asc      
       tar -xvf coinevo-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
       tar -xvf coinevo-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
