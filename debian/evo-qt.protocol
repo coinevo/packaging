@@ -1,6 +1,6 @@
 [Protocol]
-exec=bitcoin-qt '%u'
-protocol=bitcoin
+exec=evo-qt '%u'
+protocol=evo
 input=none
 output=none
 helper=true

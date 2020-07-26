@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=Coinevo Core
+Comment=Connect to the Coinevo P2P Network
+Comment[de]=Verbinde mit dem Coinevo peer-to-peer Netzwerk
+Comment[fr]=Coinevo, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Coinevo, eşten eşe kriptografik sanal para birimi
+Exec=evo-qt %u
+Terminal=false
+Type=Application
+Icon=bitcoin128
+MimeType=x-scheme-handler/evo;
+Categories=Office;Finance;P2P;Network;Qt;
+StartupWMClass=Evo-qt

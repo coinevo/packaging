@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# setup bitcoin account, homedir etc
+# setup coinevo account, homedir etc
 
 set -e
 
-BCUSER="bitcoin"
-BCHOME="/var/lib/bitcoin"
+BCUSER="evo"
+BCHOME="/var/lib/evo"
 
 if [ "$1" = "purge" ]; then
 
@@ -17,7 +17,7 @@ if [ "$1" = "purge" ]; then
 
 	echo
 	echo "#"
-	echo "#  The bitcoin user (${BCUSER}) and data dir (${BCHOME})"
+	echo "#  The coinevo user (${BCUSER}) and data dir (${BCHOME})"
 	echo "#  were left intact."
 	echo "#"
 	echo "#  Make sure to check \"${BCHOME}\" for wallets and other"

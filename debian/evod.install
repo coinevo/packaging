@@ -1,0 +1,3 @@
+usr/local/bin/evod usr/bin
+usr/local/bin/evo-cli usr/bin
+debian/examples/evo.conf etc/evo

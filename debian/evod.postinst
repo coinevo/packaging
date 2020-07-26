@@ -4,8 +4,8 @@
 
 set -e
 
-BCUSER="bitcoin"
-BCHOME="/var/lib/bitcoin"
+BCUSER="evo"
+BCHOME="/var/lib/evo"
 
 if [ "$1" = "configure" ]; then
 	# Add bitcoin user/group - this will gracefully abort if the user already exists.

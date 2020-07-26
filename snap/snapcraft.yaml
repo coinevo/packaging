@@ -1,8 +1,8 @@
-name: bitcoin-core
-version: 0.20.0
+name: coinevo-core
+version: 0.19.0
 summary:   peer-to-peer network based digital currency
 description: |
-  Bitcoin is a free open source peer-to-peer electronic cash system that
+  Coinevo is a free open source peer-to-peer electronic cash system that
   is completely decentralized, without the need for a central server or
   trusted parties.  Users hold the crypto keys to their own money and
   transact directly with each other, with the help of a P2P network to
@@ -13,7 +13,7 @@ confinement: strict
 
 apps:
   daemon:
-    command: bitcoind
+    command: evod
     plugs: [removable-media, network, network-bind]
     environment:
       # Override HOME so the datadir is located at
@@ -23,35 +23,35 @@ apps:
       # https://docs.snapcraft.io/environment-variables/7983
       HOME: $SNAP_USER_COMMON
   qt:
-    command: desktop-launch bitcoin-qt
+    command: desktop-launch evo-qt
     plugs: [removable-media, network, network-bind, desktop, x11]
     environment:
       HOME: $SNAP_USER_COMMON
       DISABLE_WAYLAND: 1
   cli:
-    command: bitcoin-cli
+    command: evo-cli
     plugs: [removable-media, network]
     environment:
       HOME: $SNAP_USER_COMMON
 
 parts:
-  bitcoin-core:
+  coinevo-core:
     plugin: nil
     override-build: | 
       env | grep SNAP
-      wget https://bitcoincore.org/bin/bitcoin-core-${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS.asc
-      wget https://bitcoincore.org/bin/bitcoin-core-${SNAPCRAFT_PROJECT_VERSION}/bitcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
-      wget https://bitcoincore.org/bin/bitcoin-core-${SNAPCRAFT_PROJECT_VERSION}/bitcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
-      echo "691ef3f61934a525dc2f007010a3a522b99b487aaf3f66f1f2014b254ae79666  SHA256SUMS.asc" | sha256sum --check
-      sha256sum --ignore-missing --check SHA256SUMS.asc
-      tar -xvf bitcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
-      tar -xvf bitcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
+      wget https://coinevo.tech/bin/coinevo-${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS.asc
+      wget https://coinevo.tech/bin/coinevo-${SNAPCRAFT_PROJECT_VERSION}/coinevo-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
+      wget https://coinevo.tech/bin/coinevo-${SNAPCRAFT_PROJECT_VERSION}/coinevo-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
+      echo "087cb44d9053bcb07e15345d372ce7ca654db07771bbdcc3b0d06a151391ab73  SHA256SUMS.asc" | sha256sum --check
+      sha256sum --ignore-missing --check SHA256SUMS.asc      
+      tar -xvf coinevo-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
+      tar -xvf coinevo-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
       echo "Running tests ..."
-      bitcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/test_bitcoin
-      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin bitcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/bitcoind
-      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin bitcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/bitcoin-qt
-      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin bitcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/bitcoin-cli
-      wget https://raw.githubusercontent.com/bitcoin/bitcoin/v${SNAPCRAFT_PROJECT_VERSION}/share/pixmaps/bitcoin128.png
+      -${SNAPCRAFT_PROJECT_VERSION}/bin/test_coinevo
+      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin coinevo-${SNAPCRAFT_PROJECT_VERSION}/bin/evod
+      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin coinevo-${SNAPCRAFT_PROJECT_VERSION}/bin/evo-qt
+      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin coinevo-${SNAPCRAFT_PROJECT_VERSION}/bin/evo-cli
+      wget https://raw.githubusercontent.com/coinevo/evo/v${SNAPCRAFT_PROJECT_VERSION}/share/pixmaps/bitcoin128.png
       install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pixmaps bitcoin128.png
     build-packages:
       - wget

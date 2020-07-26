@@ -8,16 +8,16 @@
 # /etc/bitcoin/bitcoin.conf
 
 [Unit]
-Description=Bitcoin daemon
+Description=Coinevo daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/bitcoind -daemon -datadir=/var/lib/bitcoin -conf=/etc/bitcoin/bitcoin.conf -pid=/run/bitcoind/bitcoind.pid
-# Creates /run/bitcoind owned by bitcoin
-RuntimeDirectory=bitcoind
-User=bitcoin
+ExecStart=/usr/bin/evod -daemon -datadir=/var/lib/evo -conf=/etc/evo/evo.conf -pid=/run/evod/evod.pid
+# Creates /run/evod owned by coinevo
+RuntimeDirectory=evod
+User=coinevo
 Type=forking
-PIDFile=/run/bitcoind/bitcoind.pid
+PIDFile=/run/evod/evod.pid
 Restart=on-failure
 
 # Hardening measures
